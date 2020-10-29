@@ -18,6 +18,8 @@ class CityFragment : Fragment() {
 
     private lateinit var viewModel: CityViewModel
     private val cityAdapter=CityAdapter(arrayListOf())
+    lateinit var koordinat:String
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,10 +33,21 @@ class CityFragment : Fragment() {
         return fragmentView
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        koordinat=requireArguments().getString("coordinat")!!
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel=ViewModelProviders.of(this).get(CityViewModel::class.java)
-        viewModel.refrehData()
+        viewModel.refreshData(koordinat)
+        swipeRefreshLayout.setOnRefreshListener {
+            recyclerCity.visibility=View.GONE
+            tvCityErr.visibility=View.GONE
+            pbCityLoading.visibility=View.VISIBLE
+            viewModel.refreshFromAPI(koordinat)
+            swipeRefreshLayout.isRefreshing=false
+        }
         recyclerCity.layoutManager=LinearLayoutManager(context)
         recyclerCity.adapter=cityAdapter
         observeLiveData()

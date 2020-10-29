@@ -1,13 +1,7 @@
 package com.example.theweatherapp
 
-import android.content.Context
-import android.content.Context.LOCATION_SERVICE
 import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,13 +10,12 @@ import android.widget.Toast
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import im.delight.android.location.SimpleLocation
 import kotlinx.android.synthetic.main.fragment_main.view.*
-import java.util.jar.Manifest
 
 
 class MainFragment : Fragment(),View.OnClickListener{
@@ -31,6 +24,7 @@ class MainFragment : Fragment(),View.OnClickListener{
     var location: SimpleLocation? = null
     var latitude: Double? = null
     var longitude: Double? = null
+    var coordinat:String?=null
     lateinit var navController: NavController
 
     override fun onCreateView(
@@ -40,8 +34,6 @@ class MainFragment : Fragment(),View.OnClickListener{
         var fragmentView = inflater.inflate(R.layout.fragment_main, container, false)
         val layout=fragmentView.mainLyout as MotionLayout
         layout.transitionToEnd()
-
-        fragmentView.btnSelectCity.setOnClickListener {
             location = SimpleLocation(context)
             if (!location!!.hasLocationEnabled()) {
                 Toast.makeText(context, "You have to open GPS", Toast.LENGTH_SHORT).show()
@@ -61,20 +53,16 @@ class MainFragment : Fragment(),View.OnClickListener{
                     location = SimpleLocation(context)
                     latitude = location?.latitude
                     longitude = location?.longitude
-
-
-
+                    var mlong="%.2f".format(longitude!!.toFloat())
+                    var mLat="%.2f".format(latitude!!.toFloat())
+                    coordinat="$mLat,$mlong"
                 }
             }
-        }
+
         return fragmentView
 
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -88,8 +76,9 @@ class MainFragment : Fragment(),View.OnClickListener{
                 location= SimpleLocation(context)
                 latitude=location?.latitude
                 longitude=location?.longitude
-
-
+                var mlong="%.2f".format(longitude!!.toFloat())
+                var mLat="%.2f".format(latitude!!.toFloat())
+                coordinat="$mLat,$mlong"
             }else{
                 Toast.makeText(context,"Please, allow to GPS",Toast.LENGTH_SHORT).show()
             }
@@ -101,13 +90,22 @@ class MainFragment : Fragment(),View.OnClickListener{
         super.onViewCreated(view, savedInstanceState)
         navController= Navigation.findNavController(view)
         view.findViewById<Button>(R.id.btnSelectCity).setOnClickListener(this)
+
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id)
+        if (coordinat!=null)
         {
-            R.id.btnSelectCity -> navController.navigate(R.id.action_mainFragment_to_cityFragment)
+            when(v!!.id)
+            {
+                R.id.btnSelectCity -> {
+                    val bundle= bundleOf("coordinat" to coordinat)
+                    navController.navigate(R.id.action_mainFragment_to_cityFragment,bundle)
+
+                }
+            }
         }
+
     }
 
 }

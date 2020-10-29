@@ -14,8 +14,6 @@ import kotlinx.android.synthetic.main.single_line_city.view.*
 
 class CityAdapter(var cityList:ArrayList<City>):RecyclerView.Adapter<CityAdapter.CityViewHolder>(),CityClickListener {
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
         var inflater=LayoutInflater.from(parent.context)
         val view=DataBindingUtil.inflate<SingleLineCityBinding>(inflater,R.layout.single_line_city,parent,false)
@@ -37,7 +35,7 @@ class CityAdapter(var cityList:ArrayList<City>):RecyclerView.Adapter<CityAdapter
 
     }
 
-    fun updateCityList(newCityList:ArrayList<City>)
+    fun updateCityList(newCityList:List<City>)
     {
         cityList.clear()
         cityList.addAll(newCityList)

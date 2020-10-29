@@ -19,7 +19,7 @@ fun ImageView.downloadFromUrl( id:String?,progressDrawable: CircularProgressDraw
     url= "$url$id.png"
     val options=RequestOptions()
         .placeholder(progressDrawable)
-        .error(R.drawable.ic_ice)
+        .error(R.drawable.ic_error)
 
     Glide.with(context)
         .setDefaultRequestOptions(options)
