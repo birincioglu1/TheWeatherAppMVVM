@@ -2,5 +2,6 @@
     <string name="app_name">TheWeatherApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="format">%1$td/%1$tm/%1$tY</string>
+    <string name="format">%1$tr/%1$tm/%1$tY</string>
+    <string name="copy">Copyright \u00a9 2020, adembirincioglu</string>
 </resources>

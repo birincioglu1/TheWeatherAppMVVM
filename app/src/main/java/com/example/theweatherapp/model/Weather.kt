@@ -25,6 +25,9 @@ data class Weather(
     @SerializedName("min_temp")
     var min_temp:Float,
 
+    @SerializedName("max_temp")
+    var max_temp:Float,
+
     @SerializedName("the_temp")
     var the_temp:Float,
 

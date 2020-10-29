@@ -36,14 +36,12 @@ class DetailViewModel:ViewModel() {
                         weathers.value=t
                         weatherErr.value=false
                         weatherLoading.value=false
-
-                        Log.e("HEY","detail api calisti")
                     }
 
                     override fun onError(e: Throwable) {
                         weatherErr.value=true
                         weatherLoading.value=false
-                        Log.e("HEY","detail api calismadi"+"\n"+e.message+"\n"+e.cause+"\n"+e.suppressed)
+                        e.printStackTrace()
                     }
 
                 })

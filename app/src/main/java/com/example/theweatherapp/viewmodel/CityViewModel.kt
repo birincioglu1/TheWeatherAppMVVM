@@ -1,13 +1,12 @@
 package com.example.theweatherapp.viewmodel
 
-import android.util.Log
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.theweatherapp.model.City
 import com.example.theweatherapp.service.WeatherAPIService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
@@ -36,13 +35,12 @@ class CityViewModel:ViewModel() {
                         cities.value=t
                         cityErr.value=false
                         cityLoading.value=false
-                        Log.e("HEY","api calisti")
+
                     }
 
                     override fun onError(e: Throwable) {
                         cityLoading.value=false
                         cityErr.value=true
-                        Log.e("HEY","api calismadi"+e.message)
                         e.printStackTrace()
 
                     }

@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
@@ -31,17 +32,19 @@ class MainFragment : Fragment(),View.OnClickListener{
     var latitude: Double? = null
     var longitude: Double? = null
     lateinit var navController: NavController
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         var fragmentView = inflater.inflate(R.layout.fragment_main, container, false)
-
+        val layout=fragmentView.mainLyout as MotionLayout
+        layout.transitionToEnd()
 
         fragmentView.btnSelectCity.setOnClickListener {
             location = SimpleLocation(context)
             if (!location!!.hasLocationEnabled()) {
-                Toast.makeText(context, "GPS açmalısın", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "You have to open GPS", Toast.LENGTH_SHORT).show()
                 SimpleLocation.openSettings(context)
             } else {
                 if (ContextCompat.checkSelfPermission(
@@ -58,9 +61,6 @@ class MainFragment : Fragment(),View.OnClickListener{
                     location = SimpleLocation(context)
                     latitude = location?.latitude
                     longitude = location?.longitude
-                    Log.e("KONUM", "" + latitude + "----------" + longitude)
-                    Toast.makeText(context, "" + latitude + "" + longitude, Toast.LENGTH_SHORT)
-                        .show()
 
 
 
@@ -71,7 +71,10 @@ class MainFragment : Fragment(),View.OnClickListener{
 
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -85,11 +88,10 @@ class MainFragment : Fragment(),View.OnClickListener{
                 location= SimpleLocation(context)
                 latitude=location?.latitude
                 longitude=location?.longitude
-                Log.e("KONUM",""+latitude+"-----------"+longitude)
-                Toast.makeText(context,""+latitude+""+longitude,Toast.LENGTH_SHORT).show()
+
 
             }else{
-                Toast.makeText(context,"Konum için izin veriniz",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Please, allow to GPS",Toast.LENGTH_SHORT).show()
             }
         }
     }

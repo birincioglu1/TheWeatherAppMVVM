@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.theweatherapp.adapter.CityAdapter
 import com.example.theweatherapp.viewmodel.CityViewModel
 import kotlinx.android.synthetic.main.fragment_city.*
-
+import kotlinx.android.synthetic.main.fragment_city.view.*
 
 
 class CityFragment : Fragment() {
@@ -25,7 +25,9 @@ class CityFragment : Fragment() {
     ): View? {
         var fragmentView=inflater.inflate(R.layout.fragment_city, container, false)
 
-
+        fragmentView.btnBackToMain.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
         return fragmentView
     }
 

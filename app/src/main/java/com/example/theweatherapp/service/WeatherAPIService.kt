@@ -1,18 +1,14 @@
 package com.example.theweatherapp.service
 
 import com.example.theweatherapp.model.City
-import com.example.theweatherapp.model.Weather
 import com.example.theweatherapp.model.WeatherRepo
-import com.google.gson.GsonBuilder
 import io.reactivex.Single
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class WeatherAPIService {
     private val BASE_URL = "https://www.metaweather.com/"
-    // add OkHttp client to Retrofit instance
     private val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())

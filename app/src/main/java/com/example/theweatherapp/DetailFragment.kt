@@ -1,6 +1,7 @@
 package com.example.theweatherapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -32,6 +33,9 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         dataBinding=DataBindingUtil.inflate(inflater,R.layout.fragment_detail,container,false)
+        dataBinding.btnBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
 
         return dataBinding.root
     }
@@ -40,7 +44,6 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             mCityId=DetailFragmentArgs.fromBundle(it).cityId
-           Toast.makeText(context,"Hey"+mCityId,Toast.LENGTH_SHORT).show()
         }
 
 
@@ -64,6 +67,7 @@ class DetailFragment : Fragment() {
                 if (it)
                 {
                     tvWeatherErr.visibility=View.VISIBLE
+
                 }
                 else{
                     tvWeatherErr.visibility=View.GONE
@@ -75,9 +79,11 @@ class DetailFragment : Fragment() {
                 if (it)
                 {
                     pbWeather.visibility=View.VISIBLE
+                    dataBinding.rootLayout.visibility=View.INVISIBLE
                     tvWeatherErr.visibility=View.GONE
                 }else{
                     pbWeather.visibility=View.GONE
+                    dataBinding.rootLayout.visibility=View.VISIBLE
                 }
             }
         })

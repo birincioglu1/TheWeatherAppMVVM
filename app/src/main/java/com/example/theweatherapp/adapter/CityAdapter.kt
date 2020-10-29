@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.theweatherapp.CityFragment
 import com.example.theweatherapp.CityFragmentDirections
 import com.example.theweatherapp.R
 import com.example.theweatherapp.databinding.SingleLineCityBinding
