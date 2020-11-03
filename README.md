@@ -20,14 +20,14 @@ Kullanıcının mevcut konumu istenerek konumuna yakın şehirler listelenmekted
 
 ## Uygulama İçeriği
 
--OOP, SOLİD prensipleri uygulandı
--API client olarak Retrofit ile yapıldı.
--Room ile SQLite kullanıldı.
--SharedPreferences ile küçük veriler tutuldu.
--KTX ile Extension functions kullanıldı.
--Navigation kullanıldı.
--LiveData/ ViewModel , Single, RxJava, Coroutines gibi tool'lar kullanıldı.
--Glide ile görseller getirildi.
--Montion Layout kullanıldı.
--Fragmentler arası geçişlerde animasyon kullanıldı.
--Custom font ve uygulama iconu eklendi.
+- OOP, SOLİD prensipleri uygulandı<br/>
+- API client olarak Retrofit ile yapıldı.<br/>
+- Room ile SQLite kullanıldı.<br/>
+- SharedPreferences ile küçük veriler tutuldu.<br/>
+- KTX ile Extension functions kullanıldı.<br/>
+- Navigation kullanıldı.<br/>
+- LiveData/ ViewModel , Single, RxJava, Coroutines gibi tool'lar kullanıldı.<br/>
+- Glide ile görseller getirildi.<br/>
+- Montion Layout kullanıldı.<br/>
+- Fragmentler arası geçişlerde animasyon kullanıldı.<br/>
+- Custom font ve uygulama iconu eklendi.<br/>
