@@ -34,4 +34,4 @@ Kullanıcının mevcut konumu istenerek konumuna yakın şehirler listelenmekted
 
 ## Uygulama Görselleri
 
-![error](https://github.com/birincioglu1/TheWeatherAppMVVM/blob/master/app/src/main/res/drawable-v24/screen_main.png | width=100)<br/>
+![error](https://github.com/birincioglu1/TheWeatherAppMVVM/blob/master/app/src/main/res/drawable-v24/screen_main.png){:height="700px" width="400px"}
