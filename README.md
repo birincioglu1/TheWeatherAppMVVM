@@ -1,5 +1,6 @@
 # TheWeatherAppMVVM
-https://www.metaweather.com/ üzerinden güncel hava durumu bilgileri alınarak uygulamaya eklendi.
+https://www.metaweather.com/ üzerinden güncel hava durumu bilgileri alınarak uygulamaya eklendi.<br/>
+Kullanıcının mevcut konumu istenerek konumuna yakın şehirler listelenmektedir. Seçilen şehrin hava durumu bilgisi kullanıcıya sunulmaktadır.<br/>
 
 ## Kullanılan Kütüphaneler
 `implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'`<br/>
@@ -17,5 +18,16 @@ https://www.metaweather.com/ üzerinden güncel hava durumu bilgileri alınarak 
 ## Kullanılan Mimari 
 "MVVM"<br/>
 
-## Uygulama İçerik
-Kullanıcının mevcut konumu istenerek konumuna yakın şehirler listelenmektedir. Seçilen şehrin hava durumu bilgisi kullanıcıya sunulmaktadır.
+## Uygulama İçeriği
+
+-OOP, SOLİD prensipleri uygulandı
+-API client olarak Retrofit ile yapıldı.
+-Room ile SQLite kullanıldı.
+-SharedPreferences ile küçük veriler tutuldu.
+-KTX ile Extension functions kullanıldı.
+-Navigation kullanıldı.
+-LiveData/ ViewModel , Single, RxJava, Coroutines gibi tool'lar kullanıldı.
+-Glide ile görseller getirildi.
+-Montion Layout kullanıldı.
+-Fragmentler arası geçişlerde animasyon kullanıldı.
+-Custom font ve uygulama iconu eklendi.
