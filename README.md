@@ -33,10 +33,10 @@ Kullanıcının mevcut konumu istenerek konumuna yakın şehirler listelenmekted
 - Custom font ve uygulama iconu eklendi.<br/>
 
 ## Uygulama Görselleri
-Ana Ekran
-<img src="https://github.com/birincioglu1/TheWeatherAppMVVM/blob/master/app/src/main/res/drawable-v24/screen_main.png" width="400" height="700">
-<br/>
-Şehirler
-<img src="https://github.com/birincioglu1/TheWeatherAppMVVM/blob/master/app/src/main/res/drawable-v24/screen_city.png" width="400" height="700">
-Hava Durumu
+Ana Ekran<br/>
+<img src="https://github.com/birincioglu1/TheWeatherAppMVVM/blob/master/app/src/main/res/drawable-v24/screen_main.png" width="400" height="700"><br/>
+
+Şehirler<br/>
+<img src="https://github.com/birincioglu1/TheWeatherAppMVVM/blob/master/app/src/main/res/drawable-v24/screen_city.png" width="400" height="700"><br/>
+Hava Durumu<br/>
 <img src="https://github.com/birincioglu1/TheWeatherAppMVVM/blob/master/app/src/main/res/drawable-v24/screen_detail.png" width="400" height="700">
