@@ -31,3 +31,7 @@ Kullanıcının mevcut konumu istenerek konumuna yakın şehirler listelenmekted
 - Montion Layout kullanıldı.<br/>
 - Fragmentler arası geçişlerde animasyon kullanıldı.<br/>
 - Custom font ve uygulama iconu eklendi.<br/>
+
+## Uygulama Görselleri
+
+![error](https://github.com/birincioglu1/TheWeatherAppMVVM/blob/master/app/src/main/res/drawable-v24/screen_main.png)<br/>
